@@ -9,7 +9,7 @@ alembic==1.11.1
 altair==4.2.2
 anyio==3.6.2
 apt-wrapper==1.18
-apturl==0.5.2
+
 argcomplete==3.0.8
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
