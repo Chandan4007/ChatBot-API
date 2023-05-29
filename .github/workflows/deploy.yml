@@ -1,0 +1,30 @@
+name: Flask API Deployment
+
+on:
+  push:
+    branches:
+      - main  # Deploy when changes are pushed to the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8  # Choose the Python version you want to use
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+
+      - name: Deploy API
+        run: |
+          pip install gunicorn
+          gunicorn -w 4 -b 0.0.0.0:$PORT your_flask_app_file:app
