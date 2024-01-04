@@ -9,7 +9,7 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    openai.api_key = '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'
+    openai.api_key = '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'
     quest = request.form['name']
     prompt = quest
     completions = openai.Completion.create(
